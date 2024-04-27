@@ -1,0 +1,62 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block scripts %}
+  <script src="{% static 'quizes/main.js' %}" defer></script>
+  <link rel="stylesheet" href="{% static 'style.css' %}">
+{% endblock scripts %}
+
+{% block title %}
+Home
+{% endblock title %}
+
+{% block content %}
+
+  <!-- Modal -->
+  <div class="modal fade" id="quizStartModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Start?</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body" id="modal-body-confirm"></div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger" data-bs-dismiss="modal">No</button>
+          <button type="button" id="start-button" class="btn btn-success">Yes</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="home-title h1 fw-bolder">Trivia Challenges</div>
+  <hr>
+
+  <div class="row row-cols-1 row-cols-md-2 g-4">
+    {% for obj in object_list %}
+      <div class="col">
+        <div class="card">
+          <div class="card-body rounded-1">
+            <h4 class="card-title fw-bolder">{{ obj.name }}</h4>
+            <p class="card-text text-muted">Topic: {{ obj.topic }}</p>
+            <p class="card-text text-muted">Difficulty: {{ obj.difficulty }}</p>
+            <button
+              class="btn btn-success modal-button"
+              data-pk="{{ obj.pk }}"
+              data-quiz="{{ obj.name }}"
+              data-topic="{{ obj.topic }}"
+              data-questions="{{ obj.number_of_questions }}"
+              data-difficulty="{{ obj.difficulty }}"
+              data-time="{{ obj.time }}"
+              data-pass="{{ obj.required_score_to_pass }}"
+              data-bs-toggle="modal"
+              data-bs-target="#quizStartModal">
+                Let's Go!
+            </button><br>
+          </div>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+
+{% endblock content %}

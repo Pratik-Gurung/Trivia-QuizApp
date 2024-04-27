@@ -1,0 +1,73 @@
+.not-visible {
+  display: none;
+}
+
+.modal-content {
+  background-color: white;
+}
+
+body {
+  background-color: blanchedalmond;
+  font-family: "papyrus";
+}
+
+.card-body {
+  background-color: rgb(165, 142, 116);
+}
+
+.modal-body {
+  background-color: #424530;
+  color: white;
+}
+
+.modal-header,
+.modal-footer {
+  background-color: blanchedalmond;
+}
+
+.time-bar {
+  background-color: #e09132;
+}
+
+.congratulations,
+.better-luck {
+  color: white;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.congratulations {
+  background-color: #4CAF50;
+}
+
+.better-luck {
+  background-color: #f44336;
+}
+
+#score-box {
+  width: 100%;
+  height: 130px;
+  overflow: auto;
+  padding: 10px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.score-message {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#result-box {
+  color: black;
+  height: 100%;
+  overflow: auto;
+}
+
+
+
+
+
